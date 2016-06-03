@@ -36,14 +36,14 @@ const (
 	// http://www.bittorrent.org/beps/bep_0005.html
 	defaultExtensionBytes = "\x00\x00\x00\x00\x00\x10\x00\x01"
 
-	socketsPerTorrent     = 80
+	socketsPerTorrent     = 8
 	torrentPeersHighWater = 200
 	torrentPeersLowWater  = 50
 
 	// Limit how long handshake can take. This is to reduce the lingering
 	// impact of a few bad apples. 4s loses 1% of successful handshakes that
 	// are obtained with 60s timeout, and 5% of unsuccessful handshakes.
-	handshakesTimeout = 20 * time.Second
+	handshakesTimeout = 3 * time.Second
 
 	// These are our extended message IDs. Peers will use these values to
 	// select which extension a message is intended for.

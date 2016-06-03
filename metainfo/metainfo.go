@@ -52,6 +52,34 @@ type Info struct {
 	Files       []FileInfo `bencode:"files,omitempty"`
 }
 
+
+func (info *Info) BuildFromFile(path string)(err error){
+	info.Name = filepath.Base(path)
+	info.Files = nil
+	fi, err := os.Stat(path)
+	if err != nil{
+		fmt.Printf("error getting relative path: %s", err)
+		return nil
+	}
+	if fi.IsDir(){
+		return fmt.Errorf("%s is dir", err)
+	}
+	info.Files = append(info.Files, FileInfo{
+		//Path: strings.Split(path, string(filepath.Separator)),
+		Length: fi.Size(),
+	})
+	info.Length = fi.Size()
+
+	err = info.GeneratePieces(func(fi FileInfo) (io.ReadCloser, error) {
+		//return os.Open(strings.Join(fi.Path, string(filepath.Separator)))
+		return os.Open(path)
+	})
+	if err != nil {
+		err = fmt.Errorf("error generating pieces: %s", err)
+	}
+	return
+}
+
 // This is a helper that sets Files and Pieces from a root path and its
 // children.
 func (info *Info) BuildFromFilePath(root string) (err error) {
