@@ -51,6 +51,10 @@ func (me *trackerScraper) announce() time.Duration {
 		return 5 * time.Minute
 	}
 	me.t.AddPeers(trackerToTorrentPeers(res.Peers))
+
+	if res.Interval == 0 {
+		res.Interval = 5
+	}
 	return time.Duration(res.Interval) * time.Second
 }
 
@@ -65,6 +69,10 @@ func (me *trackerScraper) announceEvent(event tracker.AnnounceEvent) {
 	_, err = tracker.AnnounceHost(urlToUse, &req, host)
 	if err != nil {
 		log.Printf("error announcing %s %q to %q: %s", me.t.InfoHash().HexString(), me.t.Name(), me.url, err)
+	} else if me.t.cl.config.Debug {
+		log.Printf("announce event:%v for %v ...", event, me.t.name())
+	} else {
+
 	}
 
 }

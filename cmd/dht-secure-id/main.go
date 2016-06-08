@@ -6,8 +6,7 @@ import (
 	"net"
 	"os"
 
-	"github.com/docopt/docopt-go"
-
+	"github.com/anacrolix/missinggo/docopt"
 	"github.com/anacrolix/torrent/dht"
 )
 

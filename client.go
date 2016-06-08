@@ -7,13 +7,6 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
-	"github.com/anacrolix/missinggo"
-	"github.com/anacrolix/missinggo/pproffd"
-	"github.com/anacrolix/missinggo/pubsub"
-	"github.com/anacrolix/sync"
-	"github.com/anacrolix/torrent/ratelimit"
-	"github.com/anacrolix/utp"
-	"github.com/dustin/go-humanize"
 	"io"
 	"log"
 	"math/big"
@@ -24,6 +17,14 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/anacrolix/missinggo"
+	"github.com/anacrolix/missinggo/pproffd"
+	"github.com/anacrolix/missinggo/pubsub"
+	"github.com/anacrolix/sync"
+	"github.com/anacrolix/torrent/ratelimit"
+	"github.com/anacrolix/utp"
+	"github.com/dustin/go-humanize"
 
 	"github.com/anacrolix/torrent/bencode"
 	"github.com/anacrolix/torrent/dht"
@@ -652,8 +653,14 @@ func (cl *Client) outgoingConnection(t *Torrent, addr string, ps peerSource) {
 		return
 	}
 	defer c.Close()
+	if cl.config.Debug {
+		log.Printf("%v init conn with %s", t.name(), addr)
+	}
 	c.Discovery = ps
 	cl.runInitiatedHandshookConn(c, t)
+	if cl.config.Debug {
+		log.Printf("%v shutdown conn with %s", t.name(), addr)
+	}
 }
 
 // The port number for incoming peer connections. 0 if the client isn't
@@ -1590,23 +1597,23 @@ func (cl *Client) dropTorrent(infoHash metainfo.Hash) (err error) {
 
 func (cl *Client) DropTorrent(infoHash metainfo.Hash) (err error) {
 	t, ok := cl.torrents[infoHash]
-	if ok{
-		for _, track := range t.trackerAnnouncers{
+	if ok {
+		for _, track := range t.trackerAnnouncers {
 			go track.announceEvent(tracker.Stopped)
 		}
 		return cl.dropTorrent(infoHash)
-	}else{
+	} else {
 		return nil
 	}
 }
 
-func (cl *Client) DropAllTorrent(){
-	for infoHash := range(cl.torrents){
+func (cl *Client) DropAllTorrent() {
+	for infoHash := range cl.torrents {
 		cl.DropTorrent(infoHash)
 	}
 }
 
-func (cl *Client) CheckExistsInfoHash(infoHash metainfo.Hash) (ok bool){
+func (cl *Client) CheckExistsInfoHash(infoHash metainfo.Hash) (ok bool) {
 	_, ok = cl.torrents[infoHash]
 	return ok
 }

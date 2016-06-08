@@ -604,6 +604,10 @@ type Peer struct {
 	SupportsEncryption bool
 }
 
+func (p *Peer) String() string {
+	return fmt.Sprintf("%s:%d", string(p.IP), p.Port)
+}
+
 func (t *Torrent) pieceLength(piece int) (len_ pp.Integer) {
 	if piece < 0 || piece >= t.info.NumPieces() {
 		return

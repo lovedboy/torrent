@@ -1,9 +1,10 @@
 package ratelimit
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
 	"time"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestRateLimit_ApplyForSendByte(t *testing.T) {

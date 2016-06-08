@@ -52,16 +52,15 @@ type Info struct {
 	Files       []FileInfo `bencode:"files,omitempty"`
 }
 
-
-func (info *Info) BuildFromFile(path string)(err error){
+func (info *Info) BuildFromFile(path string) (err error) {
 	info.Name = filepath.Base(path)
 	info.Files = nil
 	fi, err := os.Stat(path)
-	if err != nil{
+	if err != nil {
 		fmt.Printf("error getting relative path: %s", err)
 		return nil
 	}
-	if fi.IsDir(){
+	if fi.IsDir() {
 		return fmt.Errorf("%s is dir", err)
 	}
 	info.Files = append(info.Files, FileInfo{
