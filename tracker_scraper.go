@@ -68,7 +68,7 @@ func (me *trackerScraper) announceEvent(event tracker.AnnounceEvent) {
 	req.Event = event
 	_, err = tracker.AnnounceHost(urlToUse, &req, host)
 	if err != nil {
-		log.Printf("error announcing %s %q to %q: %s", me.t.InfoHash().HexString(), me.t.Name(), me.url, err)
+		log.Printf("error announcing %s %q to %q: %s", me.t.InfoHash().HexString(), me.t.name(), me.url, err)
 	} else if me.t.cl.config.Debug {
 		log.Printf("announce event:%v for %v ...", event, me.t.name())
 	} else {
