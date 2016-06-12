@@ -60,6 +60,9 @@ func (info *Info) BuildFromFile(path string) (err error) {
 		fmt.Printf("error getting relative path: %s", err)
 		return nil
 	}
+	if fi.Size() == 0{
+		return fmt.Errorf("not support empty file")
+	}
 	if fi.IsDir() {
 		return fmt.Errorf("%s is dir", err)
 	}
