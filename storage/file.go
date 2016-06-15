@@ -23,6 +23,14 @@ func NewFile(baseDir string) Client {
 	}
 }
 
+func ClearComplete(v interface{}) bool {
+	if fs, ok := v.(*fileStorage); ok {
+		fs.completed = nil
+		return ok
+	}
+	return false
+}
+
 func (fs *fileStorage) OpenTorrent(info *metainfo.InfoEx) (Torrent, error) {
 	return fileTorrentStorage{fs}, nil
 }

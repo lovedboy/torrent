@@ -1601,15 +1601,17 @@ func (cl *Client) DropTorrent(infoHash metainfo.Hash) (err error) {
 		for _, track := range t.trackerAnnouncers {
 			go track.announceEvent(tracker.Stopped)
 		}
-		return cl.dropTorrent(infoHash)
-	} else {
-		return nil
+		t.Drop()
 	}
+	return
 }
 
 func (cl *Client) DropAllTorrent() {
-	for infoHash := range cl.torrents {
-		cl.DropTorrent(infoHash)
+	for infohash := range cl.torrents {
+		cl.DropTorrent(infohash)
+	}
+	if storage.ClearComplete(cl.defaultStorage) {
+		log.Printf("clear storage complete.....")
 	}
 }
 
