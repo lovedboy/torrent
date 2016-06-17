@@ -50,6 +50,7 @@ func (me *trackerScraper) announce() time.Duration {
 		log.Printf("error announcing %s %q to %q: %s", me.t.InfoHash().HexString(), me.t.Name(), me.url, err)
 		return 5 * time.Minute
 	}
+	log.Printf("%s will add peers %v, next announce is %d", me.t.name(), res.Peers, res.Interval)
 	me.t.AddPeers(trackerToTorrentPeers(res.Peers))
 
 	if res.Interval == 0 {

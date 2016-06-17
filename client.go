@@ -654,12 +654,12 @@ func (cl *Client) outgoingConnection(t *Torrent, addr string, ps peerSource) {
 	}
 	defer c.Close()
 	if cl.config.Debug {
-		log.Printf("%v init conn with %s", t.name(), addr)
+		log.Printf("%s init conn %s->%s", t.name(), c.localAddr().String(), c.remoteAddr().String())
 	}
 	c.Discovery = ps
 	cl.runInitiatedHandshookConn(c, t)
 	if cl.config.Debug {
-		log.Printf("%v shutdown conn with %s", t.name(), addr)
+		log.Printf("%s shutdown conn %s->%s", t.name(), c.localAddr().String(), c.remoteAddr().String())
 	}
 }
 

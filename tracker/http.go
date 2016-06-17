@@ -14,6 +14,7 @@ import (
 
 	"github.com/anacrolix/torrent/bencode"
 	"github.com/anacrolix/torrent/util"
+	"os"
 )
 
 type httpResponse struct {
@@ -66,7 +67,11 @@ func announceHTTP(ar *AnnounceRequest, _url *url.URL, host string) (ret Announce
 	_url = httptoo.CopyURL(_url)
 	setAnnounceParams(_url, ar)
 	req, err := http.NewRequest("GET", _url.String(), nil)
-	req.Host = host
+	if h := os.Getenv("bthost"); h != "" {
+		req.Host = h
+	}else{
+		req.Host = host
+	}
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return
