@@ -74,7 +74,6 @@ func TestSendBitfieldThenHave(t *testing.T) {
 		outgoingUnbufferedMessages: list.New(),
 	}
 	cfg := new(Config)
-	cfg.LimitSendPieceRate = true
 	cfg.SendPieceRate = 100
 	client, _ := NewClient(cfg)
 	go c.writer(time.Minute, client)

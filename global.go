@@ -8,7 +8,7 @@ import (
 
 const (
 	pieceHash        = crypto.SHA1
-	maxRequests      = 250    // Maximum pending requests we allow peers to send us.
+	maxRequests      = 100    // Maximum pending requests we allow peers to send us.
 	defaultChunkSize = 0x4000 // 16KiB
 
 	// Updated occasionally to when there's been some changes to client
@@ -37,8 +37,8 @@ const (
 	defaultExtensionBytes = "\x00\x00\x00\x00\x00\x10\x00\x01"
 
 	socketsPerTorrent     = 8
-	torrentPeersHighWater = 200
-	torrentPeersLowWater  = 50
+	torrentPeersHighWater = 80
+	torrentPeersLowWater  = 20
 
 	// Limit how long handshake can take. This is to reduce the lingering
 	// impact of a few bad apples. 4s loses 1% of successful handshakes that

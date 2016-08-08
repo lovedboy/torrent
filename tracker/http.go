@@ -12,9 +12,10 @@ import (
 
 	"github.com/anacrolix/missinggo/httptoo"
 
+	"os"
+
 	"github.com/anacrolix/torrent/bencode"
 	"github.com/anacrolix/torrent/util"
-	"os"
 )
 
 type httpResponse struct {
@@ -69,7 +70,7 @@ func announceHTTP(ar *AnnounceRequest, _url *url.URL, host string) (ret Announce
 	req, err := http.NewRequest("GET", _url.String(), nil)
 	if h := os.Getenv("bthost"); h != "" {
 		req.Host = h
-	}else{
+	} else {
 		req.Host = host
 	}
 	resp, err := http.DefaultClient.Do(req)

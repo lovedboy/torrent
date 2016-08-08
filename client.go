@@ -22,9 +22,9 @@ import (
 	"github.com/anacrolix/missinggo/pproffd"
 	"github.com/anacrolix/missinggo/pubsub"
 	"github.com/anacrolix/sync"
-	"github.com/anacrolix/torrent/ratelimit"
 	"github.com/anacrolix/utp"
 	"github.com/dustin/go-humanize"
+	"github.com/juju/ratelimit"
 
 	"github.com/anacrolix/torrent/bencode"
 	"github.com/anacrolix/torrent/dht"
@@ -85,7 +85,7 @@ type Client struct {
 
 	torrents map[metainfo.Hash]*Torrent
 
-	rate *ratelimit.RateLimit
+	rate *ratelimit.Bucket
 }
 
 func (cl *Client) IPBlockList() iplist.Ranger {
@@ -329,9 +329,7 @@ func NewClient(cfg *Config) (cl *Client, err error) {
 	}
 
 	if cfg.SendPieceRate > 0 {
-		cl.rate = new(ratelimit.RateLimit)
-		cl.rate.MaxByte = cfg.SendPieceRate * 1024
-		cl.rate.PeriodicallyIncRate()
+		cl.rate = ratelimit.NewBucketWithRate(float64(cfg.SendPieceRate*1024), cfg.SendPieceRate*1024)
 	}
 
 	return
