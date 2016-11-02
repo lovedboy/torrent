@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anacrolix/torrent/bencode"
-	"github.com/anacrolix/torrent/util"
+	"github.com/lovedboy/torrent/bencode"
+	"github.com/lovedboy/torrent/util"
 )
 
 func testMarshalUnmarshalMsg(t *testing.T, m Msg, expected string) {

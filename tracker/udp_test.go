@@ -16,7 +16,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anacrolix/torrent/util"
+	"github.com/lovedboy/torrent/util"
 )
 
 // Ensure net.IPs are stored big-endian, to match the way they're read from

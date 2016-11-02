@@ -13,8 +13,8 @@ import (
 	"github.com/bradfitz/iter"
 	"github.com/edsrzf/mmap-go"
 
-	"github.com/anacrolix/torrent/metainfo"
-	"github.com/anacrolix/torrent/mmap_span"
+	"github.com/lovedboy/torrent/metainfo"
+	"github.com/lovedboy/torrent/mmap_span"
 )
 
 var (

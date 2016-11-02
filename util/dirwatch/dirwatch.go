@@ -12,7 +12,7 @@ import (
 	"github.com/anacrolix/missinggo"
 	"github.com/go-fsnotify/fsnotify"
 
-	"github.com/anacrolix/torrent/metainfo"
+	"github.com/lovedboy/torrent/metainfo"
 )
 
 type Change uint

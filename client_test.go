@@ -24,12 +24,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anacrolix/torrent/bencode"
-	"github.com/anacrolix/torrent/dht"
-	"github.com/anacrolix/torrent/internal/testutil"
-	"github.com/anacrolix/torrent/iplist"
-	"github.com/anacrolix/torrent/metainfo"
-	"github.com/anacrolix/torrent/storage"
+	"github.com/lovedboy/torrent/bencode"
+	"github.com/lovedboy/torrent/dht"
+	"github.com/lovedboy/torrent/internal/testutil"
+	"github.com/lovedboy/torrent/iplist"
+	"github.com/lovedboy/torrent/metainfo"
+	"github.com/lovedboy/torrent/storage"
 )
 
 func init() {

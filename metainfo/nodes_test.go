@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anacrolix/torrent/bencode"
+	"github.com/lovedboy/torrent/bencode"
 )
 
 func testFileNodesMatch(t *testing.T, file string, nodes []Node) {

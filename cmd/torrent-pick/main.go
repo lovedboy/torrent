@@ -18,8 +18,8 @@ import (
 	"github.com/anacrolix/missinggo"
 	"github.com/dustin/go-humanize"
 
-	"github.com/anacrolix/torrent"
-	"github.com/anacrolix/torrent/metainfo"
+	"github.com/lovedboy/torrent"
+	"github.com/lovedboy/torrent/metainfo"
 )
 
 // fmt.Fprintf(os.Stderr, "Usage: %s \n", os.Args[0])

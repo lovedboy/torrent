@@ -3,7 +3,7 @@ package krpc
 import (
 	"fmt"
 
-	"github.com/anacrolix/torrent/util"
+	"github.com/lovedboy/torrent/util"
 )
 
 // Msg represents messages that nodes in the network send to each other as specified by the protocol.

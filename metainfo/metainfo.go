@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/anacrolix/torrent/bencode"
+	"github.com/lovedboy/torrent/bencode"
 )
 
 // Information specific to a single file inside the MetaInfo structure.
@@ -231,7 +231,7 @@ func (mi *MetaInfo) Write(w io.Writer) error {
 // Set good default values in preparation for creating a new MetaInfo file.
 func (mi *MetaInfo) SetDefaults() {
 	mi.Comment = "yoloham"
-	mi.CreatedBy = "github.com/anacrolix/torrent"
+	mi.CreatedBy = "github.com/lovedboy/torrent"
 	mi.CreationDate = time.Now().Unix()
 	mi.Info.PieceLength = 256 * 1024
 }

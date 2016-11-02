@@ -1,6 +1,6 @@
 package metainfo
 
-import "github.com/anacrolix/torrent/bencode"
+import "github.com/lovedboy/torrent/bencode"
 
 // A wrapper around Info that exposes the Bytes directly, in case marshalling
 // and unmarshalling Info doesn't produce the same bytes.

@@ -3,7 +3,7 @@ package krpc
 import (
 	"fmt"
 
-	"github.com/anacrolix/torrent/bencode"
+	"github.com/lovedboy/torrent/bencode"
 )
 
 // Represented as a string or list in bencode.

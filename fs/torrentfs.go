@@ -13,8 +13,8 @@ import (
 	fusefs "bazil.org/fuse/fs"
 	"golang.org/x/net/context"
 
-	"github.com/anacrolix/torrent"
-	"github.com/anacrolix/torrent/metainfo"
+	"github.com/lovedboy/torrent"
+	"github.com/lovedboy/torrent/metainfo"
 )
 
 const (

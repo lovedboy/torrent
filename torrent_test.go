@@ -3,7 +3,7 @@ package torrent
 import (
 	"testing"
 
-	"github.com/anacrolix/torrent/peer_protocol"
+	"github.com/lovedboy/torrent/peer_protocol"
 )
 
 func r(i, b, l peer_protocol.Integer) request {

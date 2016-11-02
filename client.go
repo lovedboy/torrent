@@ -26,15 +26,15 @@ import (
 	"github.com/dustin/go-humanize"
 	"github.com/juju/ratelimit"
 
-	"github.com/anacrolix/torrent/bencode"
-	"github.com/anacrolix/torrent/dht"
-	"github.com/anacrolix/torrent/dht/krpc"
-	"github.com/anacrolix/torrent/iplist"
-	"github.com/anacrolix/torrent/metainfo"
-	"github.com/anacrolix/torrent/mse"
-	pp "github.com/anacrolix/torrent/peer_protocol"
-	"github.com/anacrolix/torrent/storage"
-	"github.com/anacrolix/torrent/tracker"
+	"github.com/lovedboy/torrent/bencode"
+	"github.com/lovedboy/torrent/dht"
+	"github.com/lovedboy/torrent/dht/krpc"
+	"github.com/lovedboy/torrent/iplist"
+	"github.com/lovedboy/torrent/metainfo"
+	"github.com/lovedboy/torrent/mse"
+	pp "github.com/lovedboy/torrent/peer_protocol"
+	"github.com/lovedboy/torrent/storage"
+	"github.com/lovedboy/torrent/tracker"
 )
 
 // Currently doesn't really queue, but should in the future.

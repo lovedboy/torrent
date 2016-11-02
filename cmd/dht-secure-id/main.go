@@ -7,7 +7,7 @@ import (
 	"os"
 
 	"github.com/anacrolix/missinggo/docopt"
-	"github.com/anacrolix/torrent/dht"
+	"github.com/lovedboy/torrent/dht"
 )
 
 func main() {

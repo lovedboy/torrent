@@ -15,9 +15,9 @@ import (
 	"github.com/dustin/go-humanize"
 	"github.com/gosuri/uiprogress"
 
-	"github.com/anacrolix/torrent"
-	"github.com/anacrolix/torrent/metainfo"
-	"github.com/anacrolix/torrent/storage"
+	"github.com/lovedboy/torrent"
+	"github.com/lovedboy/torrent/metainfo"
+	"github.com/lovedboy/torrent/storage"
 )
 
 func resolvedPeerAddrs(ss []string) (ret []torrent.Peer, err error) {

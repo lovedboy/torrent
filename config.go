@@ -1,9 +1,9 @@
 package torrent
 
 import (
-	"github.com/anacrolix/torrent/dht"
-	"github.com/anacrolix/torrent/iplist"
-	"github.com/anacrolix/torrent/storage"
+	"github.com/lovedboy/torrent/dht"
+	"github.com/lovedboy/torrent/iplist"
+	"github.com/lovedboy/torrent/storage"
 )
 
 // Override Client defaults.

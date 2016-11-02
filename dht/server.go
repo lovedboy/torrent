@@ -16,10 +16,10 @@ import (
 	"github.com/anacrolix/missinggo"
 	"github.com/tylertreat/BoomFilters"
 
-	"github.com/anacrolix/torrent/bencode"
-	"github.com/anacrolix/torrent/dht/krpc"
-	"github.com/anacrolix/torrent/iplist"
-	"github.com/anacrolix/torrent/logonce"
+	"github.com/lovedboy/torrent/bencode"
+	"github.com/lovedboy/torrent/dht/krpc"
+	"github.com/lovedboy/torrent/iplist"
+	"github.com/lovedboy/torrent/logonce"
 )
 
 // A Server defines parameters for a DHT node server that is able to

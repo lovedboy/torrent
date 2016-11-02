@@ -12,8 +12,8 @@ import (
 	"github.com/anacrolix/tagflag"
 	"github.com/bradfitz/iter"
 
-	"github.com/anacrolix/torrent/dht"
-	"github.com/anacrolix/torrent/dht/krpc"
+	"github.com/lovedboy/torrent/dht"
+	"github.com/lovedboy/torrent/dht/krpc"
 )
 
 func main() {

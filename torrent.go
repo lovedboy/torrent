@@ -21,11 +21,11 @@ import (
 	"github.com/anacrolix/missinggo/pubsub"
 	"github.com/bradfitz/iter"
 
-	"github.com/anacrolix/torrent/bencode"
-	"github.com/anacrolix/torrent/metainfo"
-	pp "github.com/anacrolix/torrent/peer_protocol"
-	"github.com/anacrolix/torrent/storage"
-	"github.com/anacrolix/torrent/tracker"
+	"github.com/lovedboy/torrent/bencode"
+	"github.com/lovedboy/torrent/metainfo"
+	pp "github.com/lovedboy/torrent/peer_protocol"
+	"github.com/lovedboy/torrent/storage"
+	"github.com/lovedboy/torrent/tracker"
 )
 
 func (t *Torrent) chunkIndexSpec(chunkIndex, piece int) chunkSpec {

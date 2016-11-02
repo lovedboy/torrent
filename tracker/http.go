@@ -14,8 +14,8 @@ import (
 
 	"os"
 
-	"github.com/anacrolix/torrent/bencode"
-	"github.com/anacrolix/torrent/util"
+	"github.com/lovedboy/torrent/bencode"
+	"github.com/lovedboy/torrent/util"
 )
 
 type httpResponse struct {
