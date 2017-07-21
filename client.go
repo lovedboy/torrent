@@ -86,6 +86,8 @@ type Client struct {
 	torrents map[metainfo.Hash]*Torrent
 
 	rate *ratelimit.Bucket
+
+	DisableAddPeer bool
 }
 
 func (cl *Client) IPBlockList() iplist.Ranger {

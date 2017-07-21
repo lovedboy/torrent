@@ -177,6 +177,9 @@ func (t *Torrent) Files() (ret []File) {
 
 func (t *Torrent) AddPeers(pp []Peer) {
 	cl := t.cl
+	if cl.DisableAddPeer {
+		return
+	}
 	cl.mu.Lock()
 	defer cl.mu.Unlock()
 	cl.addPeers(t, pp)

@@ -974,13 +974,13 @@ func (t *Torrent) pieceChanged(piece int) {
 }
 
 func (t *Torrent) completeEvent() {
-	for i := 0; len(t.trackerAnnouncers) == 0 && i < 5; i++ {
-		// just sleep 1s to wait init tracker info
-		log.Printf("len %v trackerAnnouncer equal 0", t.name())
-		<-time.After(1 * time.Second)
-	}
+	//for i := 0; len(t.trackerAnnouncers) == 0 && i < 5; i++ {
+	//	// just sleep 1s to wait init tracker info
+	//	log.Printf("len %v trackerAnnouncer equal 0", t.name())
+	//	<-time.After(1 * time.Second)
+	//}
 	for _, ts := range t.trackerAnnouncers {
-		go ts.announceEvent(tracker.Completed)
+		ts.announceEvent(tracker.Completed)
 	}
 }
 
